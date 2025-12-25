@@ -289,7 +289,7 @@ void registrasi(){
                  koordinat(26,9); printf("\033[0;31mPassword Harus Minimal 8 Character\033[0m"); 
                  getchar();
                  koordinat(26,9); printf("                                                   ");
-            }else if(strcmp(confirmPass, pass) == 1 ){
+            }else if(strcmp(confirmPass, pass) != 0){
                 valid = 0;
                 koordinat(23,10); printf("\033[0;31mPassword Tidak Satu Sama Lain\033[0m");
                 getchar();
@@ -1040,6 +1040,7 @@ void Out(){
     printf("Tekan enter untuk keluar...\n");         
     getchar();
 }
+
 
 
 
