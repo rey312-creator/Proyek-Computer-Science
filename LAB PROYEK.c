@@ -519,7 +519,7 @@ void Menu_Shipment(){
 
     printf("|------- Tambah Barang Baru -------|     \n");
     printf("Masukan ITEM ID (0-9999)           :     \n");
-    printf("Masukan Nama Barang                :     \n");
+    printf("Masukan Nama Barang(TulisanSambung):     \n");
     printf("Masukan Type Barang(FRG/STB/SPD)   :     \n");
     printf("Masukan Handling Number(1000-9999) :     \n");
 
@@ -678,7 +678,7 @@ int input_khusus(char *temp, int panjang){
                 strcpy(temp,"StandarHandling"); 
                 return 0; 
             }
-            if(strcmp(kode, "SPB") == 0){
+            if(strcmp(kode, "SPD") == 0){
                 strcpy(temp, "SpecialHandling"); 
                 return 0; 
             }
@@ -775,7 +775,7 @@ void sorting_barang(){
         return;
     }
 
-    while(fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, 
+    while(count < 100 && fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, 
                  Data[count].item_type, &Data[count].handling_code) != EOF) {
         count++;
     }
@@ -849,9 +849,6 @@ void search(){
     }
 }
 
-
-
-
 void search_id(){
     char temp[50];
     int id;
@@ -881,7 +878,7 @@ void search_id(){
             return;
         }
 
-        while(fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, Data[count].item_type, &Data[count].handling_code) != EOF) {
+        while(count < 100 && fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, Data[count].item_type, &Data[count].handling_code) != EOF) {
             count++;
         }
 
@@ -938,7 +935,7 @@ void search_name(){
             return;
         }
 
-        while(fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, Data[count].item_type, &Data[count].handling_code) != EOF) {
+        while(count < 100 && fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, Data[count].item_type, &Data[count].handling_code) != EOF) {
             count++;
         }
 
@@ -997,7 +994,7 @@ void search_handling(){
             return;
         }
 
-        while(fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, Data[count].item_type, &Data[count].handling_code) != EOF) {
+        while(count < 100 && fscanf(fp, "%d %s %s %d", &Data[count].item_id, Data[count].item_name, Data[count].item_type, &Data[count].handling_code) != EOF) {
             count++;
         }
 
@@ -1043,5 +1040,6 @@ void Out(){
     printf("Tekan enter untuk keluar...\n");         
     getchar();
 }
+
 
 
