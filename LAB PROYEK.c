@@ -118,6 +118,7 @@ int check_user(char userIn[]){
     struct User Temp; 
 
     while(fscanf(fw, "%s %s ", Temp.username, Temp.password) != EOF) {
+		decrypt(Temp.username);
         if(strcmp(userIn, Temp.username) == 0){
             fclose(fw);
             return 1; 
@@ -138,6 +139,7 @@ int check_pass(char passIn[]){
     struct User Temp; 
 
     while(fscanf(fw, "%s %s ", Temp.username, Temp.password) != EOF) {
+		decrypt(Temp.password);
         if(strcmp(passIn, Temp.password) == 0){
             fclose(fw);
             return 1; 
@@ -1041,4 +1043,5 @@ void Out(){
     printf("Tekan enter untuk keluar...\n");         
     getchar();
 }
+
 
